@@ -1,6 +1,7 @@
-# journey-to-virtual-threads
+## journey-to-virtual-threads
 A historical journey of how Java finally solved the blocking problem.  Java 21's Virtual Threads solve a primary issue faced by most Java developers.
 
+---
 It's taken nearly 30 years.  Java 1.21's introduction of Virtual Threads will finally make multitasking in Java almost effortless.  In order to fully appreciate their revolutionary nature, it is helpful to take a look at the various imperfect solutions offered by Java over the years to solve the "do useful work while we wait for something else" problem.
 
  If you'd like to see the coding examples presented in this article, see [https://github.com/kennyk65/journey-to-virtual-threads](https://github.com/kennyk65/journey-to-virtual-threads).
