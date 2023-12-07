@@ -3,7 +3,7 @@ A historical journey of how Java finally solved the blocking problem.  Java 21's
 
 It's taken nearly 30 years.  Java 1.21's introduction of Virtual Threads will finally make multitasking in Java almost effortless.  In order to fully appreciate their revolutionary nature, it is helpful to take a look at the various imperfect solutions offered by Java over the years to solve the "do useful work while we wait for something else" problem.
 
- If you'd like to see the coding examples presented in this article, CLICK HERE
+ If you'd like to see the coding examples presented in this article, see https://github.com/kennyk65/journey-to-virtual-threads
 
 Java 1 
 The Introduction of Java version 1 in 1995 was remarkable.  A strongly-typed, object-oriented, C-like-syntax language which offered many features, including easy-to-use Threads.  The Thread class represented an object that would run selected code in a separate thread from the main execution thread.  The Thread object itself was a wrapper for an actual OS-level thread known as a platform thread, a.k.a. kernel thread.  The logic to be executed was described by implementing a Runnable interface.  Java took care of all of the complexity of launching and managing this separate thread.  Now it will be almost trivial to perform multiple tasks simultaneously - or so it would seem.  Consider the following example:
