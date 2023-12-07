@@ -11,8 +11,6 @@ The Introduction of Java version 1 in 1995 was remarkable.  A strongly-typed, o
 
 Java
 
- 
-
     package example.java1;
     
     public class Simple {
@@ -35,8 +33,6 @@ The main thread describes an implementation of a Runnable interface, which is do
 Excellent!  But an immediate challenge faced by first generation Java developers was how to pass a value from the background thread back to the main thread.  Consider this example where we wish to execute a long-running, blocking process in the background, then later use its returned value in the main thread:
 
 Java
-
- 
 
     package example.java1;
     
@@ -104,8 +100,6 @@ Against this backdrop, one puzzle faced by Java developers is how a single-threa
 
 JavaScript
 
- 
-
     var result;
     
     // Function to simulate a long-running, blocking process 
@@ -151,8 +145,6 @@ Java 1.5 (2004) introduced several features to improve thread management and coo
 ExecutorService abstracts away the mechanism by which something is executed.  Implementations exist for single thread, thread pools of fixed size, thread pools that grow and shrink, etc.  A Callable is like a Runnable except it can return a value.  To hold the value returned from a Callable, we need a special object which can live in one thread but hold the return value populated by the Callable.  This is the Future object, which represents a promise from one thread to populate a value for another thread.
 
 Java
-
- 
 
     package example.java5;
     
@@ -224,8 +216,6 @@ In fact, Java 5 may have made the situation worse!  By making multithreading ea
 Additionally, a need was growing to chain multiple pieces of work together, executing each part in the background.  Consider the following less-than-elegant solution:
 
 Java
-
- 
 
     package example.java5;
     
@@ -300,8 +290,6 @@ This is getting messy.  Chaining work requires custom callables to receive and 
 
 Java
 
- 
-
     package example.java5;
     
     import java.util.concurrent.Callable;
@@ -348,8 +336,6 @@ Even programmers with very little experience could follow the second example, ye
 
 JavaScript
 
- 
-
     (function() {
         setTimeout(function doThing1() {
             const result1 = "Hello";
@@ -384,8 +370,6 @@ While interesting in its own right, a byproduct of this development was the intr
 Java 1.8 (2014) was a BIG release.  On the multitasking front, the star addition was the [CompleteableFuture](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html), a big improvement over the Future from Java 1.5.  To quickly and easily run work in a separate thread, the CompleteableFuture class provides a number of "\*Async" methods which execute the desired code in another thread provided by a ForkJoinPool (by default).  The caller simply calls the method directly without fumbling with Threads or an ExecutorService.  Callback methods can register the actions to take place when the asynchronous work is done.  Finally, Lambda syntax reduces the heavy boilerplate seen in our Java 5 example:
 
 Java
-
- 
 
     package example.java8;
     
@@ -434,8 +418,6 @@ Notice:
 The callback shown above allows for the possibility to chain several actions together.  CompleteableFuture supports a fluent interface to allow composition of asynchronous workflows; a pipeline of asynchronous operations where each executes after the previous one completes.  Many methods are provided which accept [Suppliers](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html), [Consumers](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html), [Functions](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html), and other interfaces which can be replaced with Lambda expressions.  
 
 Java
-
- 
 
     package example.java8;
     
@@ -504,8 +486,6 @@ Reactive is tough to learn, so take your time.  I recommend starting with Dave 
 
 Java
 
- 
-
     package example.java9;
     
     import java.util.concurrent.TimeUnit;
@@ -552,8 +532,6 @@ RxJava has two types of streams, [Single](https://reactivex.io/documentation/sin
 Here is another implementation, based on Spring's Reactor.  Note the similarities:
 
 Java
-
- 
 
     package example.java9;
     
@@ -627,8 +605,6 @@ Virtual Threads are a lightweight alternative to traditional Java platform threa
 Compared with earlier models based on CompleteableFuture or Reactive Streams, coding with Virtual Threads is amazingly simple.  Let's go back to some code we haven't seen since the Java 1 and 5 days when we would define all our work within simple Runnables or Callables:
 
 Java
-
- 
 
     package example.java21;
     
